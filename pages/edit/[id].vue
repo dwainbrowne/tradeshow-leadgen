@@ -35,47 +35,69 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useData } from '@/composables/useData';
+import { ref, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useCompanyService } from '@/composables/useCompanyService';
 
-const { companyData, loadCompanyData } = useData();
+// Get instances of route and router
+const route = useRoute();
+const router = useRouter();
 
-// Get route and router instances
-const route = useRoute()
-const router = useRouter()
+// Access the composable to manage company data
+const { companies, errorMessage, listCompanies } = useCompanyService();
 
-// Use your data composable to load company data
-
+// Reactive reference for the company being edited
 let company = ref({
+  id: 0,
   companyName: '',
   location: '',
   contact: '',
-  notes: ''
-})   
-
-// Save changes function
-function saveChanges() {
-  // Implement your save logic here
-  console.log('Saved company data:', company.value)
-  router.push('/') // Redirect to home after save
-}
-
-// Handle file upload function
-function handleFileUpload(event) {
-  const file = event.target.files[0]
-  console.log('Uploading file:', file.name)
-  // Handle the file upload logic here
-}
-
-onMounted(async () => {
-  await loadCompanyData(); // Make sure this is awaited if it's asynchronous
-
-  const data = companyData.value;
-
-  const id = parseInt(route.params.id); // Convert route param string to number if necessary
-  company.value = data.find(item => item.id === id);
-
-
+  notes: '',
+  category: '',
+  website: '',
+  priority: 0,
+  assigned: ''
 });
+
+// Function to save changes to the company
+async function saveChanges() {
+  // Assume saveCompany method exists and handles both creating and updating companies
+  const result = await saveCompany(company.value);
+  if (result.success) {
+    console.log('Saved company data:', company.value);
+    router.push('/'); // Redirect to home after save
+  } else {
+    console.error('Error saving company:', result.message);
+  }
+}
+
+// Function to handle file upload
+function handleFileUpload(event) {
+  const file = event.target.files[0];
+  console.log('Uploading file:', file.name);
+  // Add your file upload logic here
+}
+
+// If you want to watch for changes in companies and log it, use a watcher
+watch(companies, (newCompanies) => {
+  const id = parseInt(route.params.id); // Convert route param string to number if necessary
+  const data = newCompanies.find(c => c.id === id);
+
+  if (data) {
+    company.value = { ...data }; // Copy the data to the reactive reference
+  }
+  
+}, { immediate: true });
+
+
+// Call the listCompanies method when the component is mounted
+onMounted(async () => {
+  await listCompanies();
+  // Now companies should be populated, and since it is reactive,
+  // you can directly use companies in your template.
+  // If you want to log the reactive data, it should be done within a watcher.
+  
+});
+
+
 </script>

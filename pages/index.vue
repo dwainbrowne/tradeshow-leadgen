@@ -40,19 +40,32 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useData } from '@/composables/useData';
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useCompanyService } from '~/composables/useCompanyService';
 
-const { companyData, loadCompanyData } = useData();
-const items = companyData;
-
-
-
-const router = useRouter()
+// Destructure the returned properties and methods from the composable
+const { companies, errorMessage, listCompanies } = useCompanyService();
+const router = useRouter();
 
 const navigateToEdit = (id) => {
-  router.push(`/edit/${id}`)
+  router.push(`/edit/${id}`);
 }
+
+let items = ref([]);
+
+// Call the listCompanies method when the component is mounted
+onMounted(async () => {
+  await listCompanies();
+  // Now companies should be populated, and since it is reactive,
+  // you can directly use companies in your template.
+  // If you want to log the reactive data, it should be done within a watcher.
+});
+
+// If you want to watch for changes in companies and log it, use a watcher
+watch(companies, (newCompanies) => {
+  items.value =  newCompanies;
+}, { immediate: true });
 
 </script>
 
