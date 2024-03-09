@@ -19,16 +19,20 @@
     </header>
 
     <!-- Page content -->
-    <main class="flex-grow container mx-auto px-4 py-2">
+    <main class="flex-grow container mx-auto ">
       <NuxtPage />
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4">
-      <div class="container mx-auto text-center">
-        <p>© 2024 Dwain Unfinished. All rights reserved.</p> <!-- Update year and company name -->
-        <!-- Add more footer content here -->
-      </div>
+    <!-- Sticky Round Button -->
+    <footer v-if="!route.path.includes('/edit/')" class="fixed bottom-8 left-0 right-0 mx-auto w-max">   
+      <button @click="navigateToEdit" class="flex items-center justify-center w-16 h-16 bg-blue-500 rounded-full text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        <!-- Plus Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+        </svg>
+      </button>
+
     </footer>
   </div>
 </template>
@@ -45,6 +49,13 @@ const isNotIndexPage = computed(() => route.path !== '/')
 // Function to navigate back
 function goBack() {
   router.back()
+}
+
+// Function to navigate to the edit/new contact screen
+function navigateToEdit() {
+  // Assuming '/edit/new' is the route to add a new contact.
+  // Adjust the route as per your application's URL structure.
+  router.push('/edit/new')
 }
 </script>
 
