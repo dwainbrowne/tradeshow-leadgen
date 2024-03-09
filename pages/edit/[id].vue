@@ -35,37 +35,47 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-const { data, generateData } = useData();
+import { useData } from '@/composables/useData';
 
+const { companyData, loadCompanyData } = useData();
 
+// Get route and router instances
 const route = useRoute()
 const router = useRouter()
 
+// Use your data composable to load company data
 
-//Get the first item in the data array and assign to company
-//Generate  a fake company data manually
-const company = ref(data[0] || {
-  companyName: 'Company Name',
-  location: 'Location',
-  contact: 'Contact',
-  notes: 'Notes'
-})
+let company = ref({
+  companyName: '',
+  location: '',
+  contact: '',
+  notes: ''
+})   
 
-
-
+// Save changes function
 function saveChanges() {
   // Implement your save logic here
-  // For demonstration purposes, we'll log to the console and redirect
   console.log('Saved company data:', company.value)
   router.push('/') // Redirect to home after save
 }
 
+// Handle file upload function
 function handleFileUpload(event) {
   const file = event.target.files[0]
-  // Handle the file upload logic here
   console.log('Uploading file:', file.name)
+  // Handle the file upload logic here
 }
-</script>
 
+onMounted(async () => {
+  await loadCompanyData(); // Make sure this is awaited if it's asynchronous
+
+  const data = companyData.value;
+
+  const id = parseInt(route.params.id); // Convert route param string to number if necessary
+  company.value = data.find(item => item.id === id);
+
+
+});
+</script>

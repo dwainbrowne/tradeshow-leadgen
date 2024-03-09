@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "companyName": "ABC Corporation",
+    "category": "Technology",
+    "website": "http://www.abccorp.com",
+    "contact": "John Smith",
+    "location": "c8485",
+    "notes": "Potential client for software development project",
+    "priority": 2,
+    "assigned": "Paul"
+  },
+  {
+    "id": 2,
+    "companyName": "XYZ Industries",
+    "category": "Manufacturing",
+    "website": "http://www.xyzind.com",
+    "contact": "Jane Doe",
+    "location": "c8486",
+    "notes": "Interested in supply chain optimization solutions",
+    "priority": 3,
+    "assigned": "Dwain"
+  },
+  {
+    "id": 3,
+    "companyName": "LMN Services",
+    "category": "Consulting",
+    "website": "http://www.lmnserv.com",
+    "contact": "Sarah Johnson",
+    "location": "c8487",
+    "notes": "Require assistance with business strategy development",
+    "priority": 1,
+    "assigned": "Bret"
+  },
+  {
+    "id": 4,
+    "companyName": "PQR Solutions",
+    "category": "IT",
+    "website": "http://www.pqrsol.com",
+    "contact": "Michael Brown",
+    "location": "c8488",
+    "notes": "Inquiry about cybersecurity services",
+    "priority": 4,
+    "assigned": "Paul"
+  },
+  {
+    "id": 5,
+    "companyName": "EFG Group",
+    "category": "Finance",
+    "website": "http://www.efggrp.com",
+    "contact": "David Williams",
+    "location": "c8489",
+    "notes": "Looking for investment opportunities",
+    "priority": 5,
+    "assigned": "Dwain"
+  },
+  {
+    "id": 6,
+    "companyName": "RST Corporation",
+    "category": "Technology",
+    "website": "http://www.rstcorp.com",
+    "contact": "Emily Wilson",
+    "location": "c8490",
+    "notes": "Interested in AI solutions for data analysis",
+    "priority": 2,
+    "assigned": "Bret"
+  },
+  {
+    "id": 7,
+    "companyName": "MNO Enterprises",
+    "category": "Retail",
+    "website": "http://www.mnoent.com",
+    "contact": "Chris Taylor",
+    "location": "c8491",
+    "notes": "Seeking e-commerce platform development",
+    "priority": 3,
+    "assigned": "Paul"
+  },
+  {
+    "id": 8,
+    "companyName": "JKL Corporation",
+    "category": "Manufacturing",
+    "website": "http://www.jklcorp.com",
+    "contact": "Susan Anderson",
+    "location": "c8492",
+    "notes": "Require machinery maintenance services",
+    "priority": 1,
+    "assigned": "Dwain"
+  },
+  {
+    "id": 9,
+    "companyName": "UVW Solutions",
+    "category": "IT",
+    "website": "http://www.uvwsol.com",
+    "contact": "Richard Garcia",
+    "location": "c8493",
+    "notes": "Interested in cloud migration services",
+    "priority": 4,
+    "assigned": "Bret"
+  },
+  {
+    "id": 10,
+    "companyName": "HIJ Services",
+    "category": "Consulting",
+    "website": "http://www.hijserv.com",
+    "contact": "Mary Lee",
+    "location": "c8494",
+    "notes": "Require assistance with HR restructuring",
+    "priority": 5,
+    "assigned": "Paul"
+  },
+  {
+    "id": 11,
+    "companyName": "OPQ Group",
+    "category": "Finance",
+    "website": "http://www.opqgrp.com",
+    "contact": "Steven Roberts",
+    "location": "c8495",
+    "notes": "Looking for financial advisory services",
+    "priority": 2,
+    "assigned": "Dwain"
+  },
+  {
+    "id": 12,
+    "companyName": "WXYZ Corporation",
+    "category": "Technology",
+    "website": "http://www.wxyzcorp.com",
+    "contact": "Jennifer Smith",
+    "location": "c8496",
+    "notes": "Interested in blockchain solutions",
+    "priority": 3,
+    "assigned": "Bret"
+  },
+  {
+    "id": 13,
+    "companyName": "LMN Consulting",
+    "category": "Consulting",
+    "website": "http://www.lmnconsult.com",
+    "contact": "Kevin Brown",
+    "location": "c8497",
+    "notes": "Require assistance with market research",
+    "priority": 1,
+    "assigned": "Paul"
+  },
+  {
+    "id": 14,
+    "companyName": "RST Solutions",
+    "category": "IT",
+    "website": "http://www.rstsol.com",
+    "contact": "Laura Wilson",
+    "location": "c8498",
+    "notes": "Interested in software development outsourcing",
+    "priority": 4,
+    "assigned": "Dwain"
+  },
+  {
+    "id": 15,
+    "companyName": "PQR Group",
+    "category": "Finance",
+    "website": "http://www.pqrgrp.com",
+    "contact": "Daniel Johnson",
+    "location": "c8499",
+    "notes": "Looking for investment management services",
+    "priority": 5,
+    "assigned": "Bret"
+  },
+  {
+    "id": 16,
+    "companyName": "ABC Enterprises",
+    "category": "Retail",
+    "website": "http://www.abcent.com",
+    "contact": "Jessica Taylor",
+    "location": "c8500",
+    "notes": "Seeking POS system integration",
+    "priority": 2,
+    "assigned": "Paul"
+  },
+  {
+    "id": 17,
+    "companyName": "EFG Solutions",
+    "category": "Consulting",
+    "website": "http://www.efgsol.com",
+    "contact": "John Miller",
+    "location": "c8501",
+    "notes": "Require assistance with strategic planning",
+    "priority": 3,
+    "assigned": "Dwain"
+  },
+  {
+    "id": 18,
+    "companyName": "WXYZ Services",
+    "category": "Technology",
+    "website": "http://www.wxyzserv.com",
+    "contact": "Michelle White",
+    "location": "c8502",
+    "notes": "Interested in IoT solutions",
+    "priority": 1,
+    "assigned": "Bret"
+  }
+]

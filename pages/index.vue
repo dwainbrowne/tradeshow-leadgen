@@ -43,8 +43,8 @@
 import { ref } from 'vue'
 import { useData } from '@/composables/useData';
 
-const { data, generateData } = useData();
-const items = data;
+const { companyData, loadCompanyData } = useData();
+const items = companyData;
 
 
 

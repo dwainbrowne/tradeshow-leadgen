@@ -1,28 +1,32 @@
 import { ref } from 'vue';
-import { faker } from '@faker-js/faker';
 
 export const useData = () => {
-  const data = ref([]);
+    const companyData = ref(null);
+    const isLoading = ref(false);
+    const isError = ref(false);
 
-  const generateData = () => {
-    const priorities = [1, 2, 3, 4, 5]; // 1 = HIGH, 5 = LOW
-    const assignees = ['Paul', 'Dwain', 'Bret'];
+    const loadCompanyData = async () => {
+        if (!companyData.value) {
+            isLoading.value = true;
+            isError.value = false;
+            try {
+                const response = await fetch('/data/companies.json');
+                if (response.ok) {
+                    companyData.value = await response.json();
+                } else {
+                    throw new Error('Failed to load data');
+                }
+            } catch (error) {
+                isError.value = true;
+                console.error("Error fetching company data:", error);
+            } finally {
+                isLoading.value = false;
+            }
+        }
+    };
 
-    data.value = Array.from({ length: 20 }, () => ({
-      // generate id
-      id: faker.datatype.uuid(),
-      companyName: faker.person.firstName(),
-      category: faker.person.firstName(),
-      website: faker.internet.url(),
-      contact: faker.person.firstName(),
-      location: `c${faker.datatype.number({ min: 1000, max: 9999 })}`,
-      notes: faker.lorem.sentence(),
-      priority: faker.helpers.arrayElement(priorities),
-      assigned: faker.helpers.arrayElement(assignees),
-    }));
-  };
+    // Load data immediately if desired, or export function to be called explicitly
+    loadCompanyData();
 
-  generateData(); // Populate initial data
-
-  return { data, generateData };
+    return { companyData, isLoading, isError, loadCompanyData };
 };
