@@ -19,7 +19,8 @@
       <div class="container mx-auto">
         <!-- Replace with v-for for actual data -->
         <div class="bg-white mx-2  p-4 rounded-md shadow mb-4" v-for="item in items" :key="item.id">
-          <h3 class="text-xl font-semibold">{{ item.title }}</h3>
+          <h3 class="text-xl font-semibold">{{ item.companyName }}</h3>
+           <p class="text-gray-700">{{ item.category }}</p>
           <p class="text-gray-700">{{ item.description }}</p>
           <p class="text-gray-500">{{ item.location }}</p>
           <div class="flex justify-between items-center mt-4">
@@ -40,27 +41,12 @@
 
 <script setup>
 import { ref } from 'vue'
-// import { useUserStore } from '@/stores/useUserStore';
-// //import { storeToRefs } from 'pinia';
+import { useData } from '@/composables/useData';
 
-// const userStore = useUserStore();
-// const { name, email } = storeToRefs(userStore);
+const { data, generateData } = useData();
+const items = data;
 
-// const updateUser = (name, email) => {
-//   userStore.updateUser(name, email);
-// };
 
-const items = ref([
-  // Sample data, replace or fetch from an API
-  { id: 1, title: 'Item 1', description: 'Description for Item 1', location: 'Location 1', link: '#' },
-  { id: 2, title: 'Item 2', description: 'Description for Item 2', location: 'Location 2', link: '#' },
-  { id: 3, title: 'Item 3', description: 'Description for Item 3', location: 'Location 3', link: '#' },
-  { id: 4, title: 'Item 4', description: 'Description for Item 4', location: 'Location 4', link: '#' },
-  { id: 5, title: 'Item 5', description: 'Description for Item 5', location: 'Location 5', link: '#' },
-  { id: 6, title: 'Item 6', description: 'Description for Item 6', location: 'Location 6', link: '#' },
-  { id: 7, title: 'Item 7', description: 'Description for Item 7', location: 'Location 7', link: '#'},
-  // Add more items as needed
-])
 
 const router = useRouter()
 

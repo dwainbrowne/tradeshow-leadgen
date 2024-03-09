@@ -5,7 +5,7 @@
       <h1 class="text-2xl font-bold mb-6">Edit Company Profile</h1>
       <div>
         <label for="company-name" class="block text-sm font-medium text-gray-700">Company Name</label>
-        <input type="text" id="company-name" v-model="company.name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+        <input type="text" id="company-name" v-model="company.companyName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
       </div>
       <div>
         <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
@@ -37,18 +37,23 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+const { data, generateData } = useData();
 
 
 const route = useRoute()
 const router = useRouter()
 
-const company = ref({
-  name: '',
-  location: '',
-  contact: '',
-  notes: '',
-  // Assuming you handle photo differently as it needs to be processed
+
+//Get the first item in the data array and assign to company
+//Generate  a fake company data manually
+const company = ref(data[0] || {
+  companyName: 'Company Name',
+  location: 'Location',
+  contact: 'Contact',
+  notes: 'Notes'
 })
+
+
 
 function saveChanges() {
   // Implement your save logic here
