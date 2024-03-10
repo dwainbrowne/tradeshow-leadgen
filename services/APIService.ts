@@ -55,8 +55,12 @@ export class APIService<T> {
   }
 
   // Method for updating an entity by ID
-  update(id: string, data: T): Promise<T | string> {
-    return this.request(`update/${id}`, {
+  update(id: string, data: T, url:string): Promise<T | string> {
+    
+    //Overideing the base URL with the URL passed in the method
+    this.baseUrl = url;
+
+    return this.request("", {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),

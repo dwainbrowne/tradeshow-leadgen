@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
     "faker": "^6.6.6",
+    "lodash": "^4.17.21",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
